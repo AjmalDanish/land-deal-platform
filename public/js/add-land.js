@@ -6,7 +6,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(form);
   try {
-    const response = await fetch('https://your-render-backend-url.onrender.com/add-land', {
+    const response = await fetch('https://land-deal-platform.onrender.com/add-land', {
       method: 'POST',
       body: formData,
     });

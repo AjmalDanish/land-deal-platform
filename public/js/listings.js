@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('https://your-render-backend-url.onrender.com/listings');
+    const res = await fetch('https://land-deal-platform.onrender.com/listings');
     const lands = await res.json();
     const container = document.getElementById('landList');
     container.innerHTML = '';
