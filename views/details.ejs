@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Land Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+</head>
+<body class="p-4">
+  <img src="<%= land.image %>" alt="Land" class="w-full h-64 object-cover rounded mb-4">
+  <h2 class="text-2xl font-bold mb-2"><%= land.address %></h2>
+  <p class="text-green-600 font-semibold">₹<%= land.price %></p>
+  <p>Contact: <a href="tel:<%= land.contact %>" class="text-blue-600 underline"><%= land.contact %></a></p>
+  <div id="map" class="w-full h-64 mt-4 border"></div>
+  <script>
+    function initMap() {
+      const latLng = { lat: <%= land.latitude %>, lng: <%= land.longitude %> };
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: latLng,
+      });
+      new google.maps.Marker({ position: latLng, map });
+    }
+    window.onload = initMap;
+  </script>
+</body>
+</html>
